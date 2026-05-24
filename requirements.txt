@@ -22,7 +22,7 @@ cryptography==45.0.4
 cssselect2==0.8.0
 dj-database-url==3.0.1
 dj-rest-auth==7.0.1
-Django==6.0.1
+Django==5.2.1
 django-allauth==65.13.1
 django-cloudinary-storage==0.3.0
 django-cors-headers==4.9.0
