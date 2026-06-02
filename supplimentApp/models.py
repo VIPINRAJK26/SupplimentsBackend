@@ -84,7 +84,9 @@ class Orders(models.Model):
         default='bottle'
     )
 
-    loose_quantity = models.IntegerField(
+    loose_quantity = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         null=True,
         blank=True
     )

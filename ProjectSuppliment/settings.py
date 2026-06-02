@@ -91,17 +91,25 @@ WSGI_APPLICATION = 'ProjectSuppliment.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 from decouple import config
+import dj_database_url
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": config("PGDATABASE"),
-        "USER": config("PGUSER"),
-        "PASSWORD": config("PGPASSWORD"),
-        "HOST": config("PGHOST"),
-        "PORT": config("PGPORT"),
+pg_host = config("PGHOST", default="")
+
+if pg_host.startswith("postgres://") or pg_host.startswith("postgresql://"):
+    DATABASES = {
+        "default": dj_database_url.parse(pg_host)
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": config("PGDATABASE"),
+            "USER": config("PGUSER"),
+            "PASSWORD": config("PGPASSWORD"),
+            "HOST": pg_host,
+            "PORT": config("PGPORT"),
+        }
+    }
 
 
 # Password validation
