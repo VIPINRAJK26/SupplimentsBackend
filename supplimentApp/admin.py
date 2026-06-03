@@ -12,9 +12,10 @@ class OrdersInline(admin.TabularInline):
         "status",
         "price",
         "is_active",
-    )
-    readonly_fields = (
         "created_at",
+    )
+    
+    readonly_fields = (
         "updated_at",
     )
 
