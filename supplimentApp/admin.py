@@ -14,7 +14,7 @@ class OrdersInline(admin.TabularInline):
         "is_active",
         "created_at",
     )
-    
+
     readonly_fields = (
         "updated_at",
     )
@@ -85,8 +85,8 @@ class ProductAdmin(admin.ModelAdmin):
 class CustomerAdmin(admin.ModelAdmin):
 
     list_display = (
-        "user_id",
         "name",
+        "user_id",
         "product",
         "price",
         "is_active",
@@ -105,7 +105,6 @@ class CustomerAdmin(admin.ModelAdmin):
     )
 
     readonly_fields = (
-        "created_at",
         "updated_at",
     )
 
@@ -150,7 +149,6 @@ class OrdersAdmin(admin.ModelAdmin):
     )
 
     readonly_fields = (
-        "created_at",
         "updated_at",
     )
 
