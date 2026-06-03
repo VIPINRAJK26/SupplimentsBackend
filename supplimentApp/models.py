@@ -56,7 +56,7 @@ class Orders(models.Model):
     user = models.ForeignKey(Customer, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
-    quantity = models.IntegerField()
+    quantity = models.DecimalField(max_digits=10, decimal_places=2,null=True,blank=True)
 
     status = models.CharField(
         max_length=20,
