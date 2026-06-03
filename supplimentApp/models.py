@@ -96,7 +96,7 @@ class Orders(models.Model):
         blank=True
     )
 
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(null=True,blank=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     is_active = models.BooleanField(default=True)
